@@ -21,10 +21,6 @@
 
 
 
-## Tela de Login do Cliente
-
-
-
 ## Bibliotecas usadas
 
 
