@@ -46,7 +46,7 @@
         <a href="https://github.com/alemes7">
             <img src="https://avatars.githubusercontent.com/alemes7" width="115px;" alt="Foto_Alexandre"/><br>
             <sub>
-            <b>Alexandre Alemes</b>
+            <b>Alexandre Lemes</b>
             </sub>
         </a>
         </td>

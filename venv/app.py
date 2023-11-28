@@ -41,7 +41,16 @@ CORS(app)
 
 #não faço ideia de como fazer pra listar IMAGENS com JSON
 @app.route("/list", methods=['GET'])
-def listarTarefas():    
-    tarefas = pd.read_csv('Text.csv')
-    tarefas = tarefas.to_dict('records')    
-    return jsonify(tarefas)
+def sortearCartas():    
+    diretorio = 'imagens'
+    
+    # Listar todos os arquivos no diretório de imagens
+    imagens = [f for f in os.listdir(diretorio) if os.path.isfile(os.path.join(diretorio_imagens, f))]
+    
+    # Criar uma lista de dicionários contendo o nome e o caminho de cada imagem
+    lista_imagens = [{'nome': imagem, 'caminho': f'/imagens/{imagem}'} for imagem in imagens]
+
+    return jsonify(lista_imagens)
+
+if __name__ == '__main__':
+    app.run(debug=True)
