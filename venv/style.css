@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Playfair+Display+SC&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    box-sizing:border-box;
+    list-style: none;
+    text-decoration: none;
+    font-family: 'Luckiest Guy', cursive;
+    font-family: 'Playfair Display SC', serif;
+}
+
+
+.btnStart {
+    text-align: center;
+}
+
+.btnStart button {
+    font-size: 24px;
+    padding: 15px 30px;
+    background-color: #f50808;
+    color: #fff;
+    border: 2px black outset;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btnStart button:hover {
+    background-color: rgb(55, 119, 187); 
+}
+
+
+.cabeçalho {
+    background-color: rgba(82, 43, 173, 0);
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo{
+    width: 25px;
+    height: 25px;
+    margin-left: 10px;
+}
+
+.titulo{
+    color: #fff;
+    font-size: 18px;
+}
+
+.fundo{
+    background: url(../img/fundo2.jpg);
+    width: 100%;
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-color: rgba(0, 0, 0, 0.3);
+    background-blend-mode: color;
+    display: flex;
+    justify-content: center;
+    background-attachment: fixed;
+}
