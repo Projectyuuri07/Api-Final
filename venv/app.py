@@ -1,6 +1,7 @@
 from flask import Flask, jsonify, request
 from flask_cors import CORS
 import pandas as pd
+import os
 
 ########### MATRIZ 3X4 ###########
 
@@ -44,8 +45,8 @@ CORS(app)
 def sortearCartas():    
     diretorio = 'imagens'
     
-    # Listar todos os arquivos no diretório de imagens
-    imagens = [f for f in os.listdir(diretorio) if os.path.isfile(os.path.join(diretorio_imagens, f))]
+    # OS.LISTDIR -> listar todo o diretório de imagens
+    imagens = [f for f in os.listdir(diretorio) if os.path.isfile(os.path.join(diretorio, f))]
     
     # Criar uma lista de dicionários contendo o nome e o caminho de cada imagem
     lista_imagens = [{'nome': imagem, 'caminho': f'/imagens/{imagem}'} for imagem in imagens]
