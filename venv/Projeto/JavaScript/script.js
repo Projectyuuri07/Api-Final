@@ -26,3 +26,4 @@ axios.get(URLApi + '/list')
     .catch((error) => {
         console.log('Erro na requisição GET', error);
     });
+

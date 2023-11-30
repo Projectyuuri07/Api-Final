@@ -3,11 +3,16 @@
         width: 30px;
         height: 30px;
     }
-    .btn{
-        margin-bottom: 12px;
-    }
 }
 
+@media screen and (max-width: 600px) {
+    .logo{
+        width: 25px;
+        height: 25px;
+    }
+
+
+}
 @media screen and (max-width: 450px) {
     .titulo{
         font-size: 18.5px;
@@ -18,14 +23,26 @@
 }
 
 @media screen and (max-width: 200px) {
-    .titulo{
-        font-size: 16.5px;
+    .titulo {
+        font-size: 15px;
     }
+
     .rodape {
-        font-size: 11px;
+        font-size: 10px;
+        margin-top: 16px; /* Adiciona espaço entre o conteúdo principal e o rodapé */
     }
-    .btnStart{
-        font-size: 11px;
-        padding: 4px 8px;
-    }    
+
+    .btnStart button {
+        font-size: 10px;
+        padding: 8px 16px;
+    }
+
+    .input-nome input {
+        font-size: 10px;
+        padding: 6px;
+    }
+    .gif {
+        align-items: center;
+        display: none;
+    }
 }

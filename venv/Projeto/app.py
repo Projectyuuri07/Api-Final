@@ -1,10 +1,9 @@
 from flask import Flask, jsonify, request
 from flask_cors import CORS
-import pandas as pd
 import random
 
 matriz = {}
-cartas_viradas = []
+cartas_viradas = set()
 
 ########### MATRIZ 3X4 ###########
 
@@ -20,23 +19,24 @@ CORS(app)
 
 @app.route("/list", methods=['GET'])
 def listarCartas():
-    #pegar as posicoes da matriz e coloca-los numa lista
     posicoes = list(matriz.keys())
-
-    # vai embaralhar as cartas
     random.shuffle(posicoes)
     
-    # retornando um JSON
     cartas = [{'id': id, 'posicao': pos, 'imagem': matriz[pos]} for id, pos in enumerate(posicoes, start=1)]
     return jsonify(cartas)
 
-# @app.route("/add", methods=['PUT'])
-# def loginJogador():
-#     pass
+@app.route("/add/<int:posicao>", methods=['PUT'])
+def adicionarJogador(posicao):
+    cartas_viradas.add(posicao)
+    return jsonify({"message": "Jogador adicionado com sucesso!"})
 
-# @app.route("/delete/<int:id>/<int:id>", methods=['DELETE'])
-# def deletarCartas():
-#     pass
+@app.route("/delete/<int:posicao>", methods=['DELETE'])
+def deletarCartas(posicao):
+    if posicao in cartas_viradas:
+        cartas_viradas.remove(posicao)
+        return jsonify({"message": "Carta removida com sucesso!"})
+    else:
+        return jsonify({"message": "Carta não encontrada!"})
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0", debug=True)
