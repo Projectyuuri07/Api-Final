@@ -17,7 +17,7 @@
 </tr>
 </table>
 
-## Especificações do Software de Compra e Venda em Python Orientado a Objeto
+## Especificações do Software
 
 
 

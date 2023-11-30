@@ -7,11 +7,13 @@ cartas_viradas = set()
 
 ########### MATRIZ 4x3 ###########
 
-matriz = {(0, 0): '/img/cell.png', (0, 1): '/img/android18.png', (0, 2): '/img/frizza.png', (0, 3): '/img/gohan.png',
-          (1, 0): '/img/goku.png', (1, 1): '/img/kuririn.png', (1, 2): '/img/cell.png', (1, 3): '/img/android18.png',
-          (2, 0): '/img/frizza.png', (2, 1): '/img/gohan.png', (2, 2): '/img/goku.png', (2, 3): '/img/kuririn.png'}
+matriz = {(0,0): '/img/cell.png', (0,1): '/img/android18.png', (0,2): '/img/frizza.png', (0,3): '/img/gohan.png',
+            (1,0): '/img/goku.png',     (1,1): '/img/kuririn.png', (1,2): '/img/cell.png',         (1,3): '/img/android18.png',
+            (2,0): '/img/frizza.png',   (2,1): '/img/gohan.png',   (2,2): '/img/goku.png',         (2,3): '/img/kuririn.png',
+            (3,0): '/img/videl.jpg',    (3,1): '/img/trunks.jpg',  (3,2): '/img/majinboo.jpg',    (3,3): '/img/videl.jpg',
+            (4,0): '/img/trunks.jpg',   (4,1): '/img/majinboo.jpg'}
 
-##################################
+################################
 
 app = Flask(__name__)
 CORS(app)
@@ -26,8 +28,7 @@ def listarCartas():
 
 @app.route("/add/<int:posicao>", methods=['PUT'])
 def adicionarJogador(posicao):
-    cartas_viradas.add(posicao)
-    return jsonify({"message": "Jogador adicionado com sucesso!"})
+    pass
 
 @app.route("/delete/<int:posicao>", methods=['DELETE'])
 def deletarCartas(posicao):

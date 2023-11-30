@@ -1,5 +1,3 @@
-const URLAPI = ''
-
 // Botão de mutar/desmutar música de fundo
 document.addEventListener('DOMContentLoaded', function () {
   const backgroundMusic = document.getElementById('backgroundMusic');
@@ -24,14 +22,13 @@ document.addEventListener('DOMContentLoaded', function () {
     const iniciarJogoButton = document.getElementById('iniciar');
     const nomeInput = document.getElementById('NomeUsuario');
 
-    iniciarJogoButton.addEventListener('click', function () {
+    iniciarJogoButton.addEventListener('click', function (event) {
         if (nomeInput.value.trim() === '') {
             alert('Por favor, insira seu nome antes de iniciar o jogo.');
             event.preventDefault();
         } else {
-            alert('Jogo iniciado!');
             location.href = 'game.html';
+            temporizador()
         }
     });
 });
-
