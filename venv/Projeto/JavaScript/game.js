@@ -55,3 +55,6 @@ function temporizador() {
 }
 
 setInterval(temporizador, 900);
+
+// CLICK EM APENAS 2 CARTAS
+

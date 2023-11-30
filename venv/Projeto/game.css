@@ -35,10 +35,24 @@ img{
     text-align: center;
 }
 
+.voltar{
+    background-color: rgb(11, 95, 151);
+    color: #fff;
+    width: 40px;
+    height: 40px;
+    margin: 15px;
+    border-radius: 4px;
+}
+
+.botaovoltar{
+    position: absolute;
+    top: 10px;
+}
+
 .song{
-  position: absolute;
-  right: 20px;
-  top: 10px;
+    position: absolute;
+    right: 20px;
+    top: 10px;
 }
 
 /* fundo do jogo */
@@ -141,13 +155,8 @@ img{
     height: 30px;
     display: flex;
     margin-left: 10px;
+    
 }
 .modal{
   color: blue;
-}
-
-.voltar{
-}
-
-.icontamanho{
 }
