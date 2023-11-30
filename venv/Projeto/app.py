@@ -5,12 +5,13 @@ import random
 
 matriz = {}
 cartas_viradas = []
+
 ########### MATRIZ 3X4 ###########
 
-matriz = {(0, 0): 'cell.png', (0, 1): 'android18.png', (0, 2): 'frizza.png',
-          (1, 0): 'gohan.png', (1, 1): 'goku.png', (1, 2): 'kuririn.png',
-          (2, 0): 'cell.png', (2, 1): 'android18.png', (2, 2): 'frizza.png',
-          (3, 0): 'gohan.png', (3, 1): 'goku.png', (3, 2): 'kuririn.png'}
+matriz = {(0, 0): '/img/cell.png', (0, 1): '/img/android18.png', (0, 2): '/img/frizza.png',
+          (1, 0): '/img/gohan.png', (1, 1): '/img/goku.png', (1, 2): '/img/kuririn.png',
+          (2, 0): '/img/cell.png', (2, 1): '/img/android18.png', (2, 2): '/img/frizza.png',
+          (3, 0): '/img/gohan.png', (3, 1): '/img/goku.png', (3, 2): '/img/kuririn.png'}
 
 ##################################
 

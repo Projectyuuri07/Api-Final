@@ -24,4 +24,8 @@
     .rodape {
         font-size: 11px;
     }
+    .btnStart{
+        font-size: 11px;
+        padding: 4px 8px;
+    }    
 }

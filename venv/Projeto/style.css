@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Playfair+Display+SC&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
 /* base */
 
@@ -31,10 +31,12 @@ body{
     border: 2px black outset;
     border-radius: 5px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease-in-out;
 }
 
 .btnStart button:hover {
-    background-color: rgb(55, 119, 187); 
+    background-color: #f50808;
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
 }
 
 #icon {
@@ -69,6 +71,41 @@ body{
 }
 
 /* container */
+
+.caixa{
+    display: flex;
+    flex-direction: column;
+    padding: 50px;
+}
+
+.gif {
+    display: flex;
+    justify-content: center;
+}
+
+.gif img {
+    max-width: 150px;
+    height: auto;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.input-nome{
+    margin-bottom: 10px;
+    padding: 15px;
+    border-radius: 20px;
+    color: #ffff;
+    background-color: rgba(208, 179, 11, 0.7)
+}
+
+input{
+    width: 100%;
+    padding: 10px;
+    border-radius: 15px;
+    background-color: rgb(255, 255, 255, 0.7);
+    font-size: 16px;
+    font-weight: bold;
+}
 
 .fundo{
     background: url(../img/fundo2.jpg);
@@ -105,12 +142,11 @@ body{
     text-decoration: none;
   }
   
+
+
 #icon {
     width: 30px;
     height: 30px;
     display: flex;
     margin-left: 10px;
 }
-
-
-
