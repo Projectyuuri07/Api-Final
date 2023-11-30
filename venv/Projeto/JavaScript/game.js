@@ -2,10 +2,12 @@ const grade = document.querySelector('.grid');
 const jogador = document.querySelector('.player');
 const tempo = document.querySelector('.timer');
 
+//lógica
+const cartas = []
+const aleatorio = Math.random(cartas);
 
-let primeiraCarta = ''
-let segundaCarta = ''
 
+//virar as cartas
 var cards = document.querySelectorAll('.card');
 
 [...cards].forEach((card)=>{
@@ -14,6 +16,7 @@ var cards = document.querySelectorAll('.card');
   });
 });
 
+//música
 document.addEventListener('DOMContentLoaded', function () {
   const backgroundMusic = document.getElementById('backgroundMusic');
   const toggleMusicButton = document.getElementById('toggleMusicButton');

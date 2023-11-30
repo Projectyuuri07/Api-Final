@@ -1,3 +1,6 @@
+const URLAPI = ''
+
+// Botão de mutar/desmutar música de fundo
 document.addEventListener('DOMContentLoaded', function () {
   const backgroundMusic = document.getElementById('backgroundMusic');
   const toggleMusicButton = document.getElementById('toggleMusicButton');
@@ -16,15 +19,10 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 
-document.addEventListener('DOMContentLoaded', function () {
-    document.getElementById('iniciar').addEventListener('click', function () {
-        window.location.href = 'game.html';
-    });
-});
-
+// Botão iniciar jogo
 document.addEventListener('DOMContentLoaded', function () {
     const iniciarJogoButton = document.getElementById('iniciar');
-    const nomeInput = document.getElementById('UsuNome');
+    const nomeInput = document.getElementById('NomeUsuario');
 
     iniciarJogoButton.addEventListener('click', function () {
         if (nomeInput.value.trim() === '') {
@@ -32,6 +30,8 @@ document.addEventListener('DOMContentLoaded', function () {
             event.preventDefault();
         } else {
             alert('Jogo iniciado!');
+            location.href = 'game.html';
         }
     });
 });
+
