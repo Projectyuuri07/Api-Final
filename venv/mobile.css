@@ -10,6 +10,18 @@
 
 @media screen and (max-width: 450px) {
     .titulo{
-        font-size: 20px;
+        font-size: 18.5px;
+    }
+    .rodape {
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width: 200px) {
+    .titulo{
+        font-size: 16.5px;
+    }
+    .rodape {
+        font-size: 11px;
     }
 }
