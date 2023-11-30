@@ -1,3 +1,5 @@
+/* Page mobile 1 */ 
+
 @media screen and (max-width: 800px) {
     .logo{
         width: 30px;
@@ -29,7 +31,7 @@
 
     .rodape {
         font-size: 10px;
-        margin-top: 16px; /* Adiciona espaço entre o conteúdo principal e o rodapé */
+        margin-top: 16px;
     }
 
     .btnStart button {
@@ -46,3 +48,5 @@
         display: none;
     }
 }
+
+/* Page mobile 2 */
