@@ -1,16 +1,14 @@
 // ESTE É O JAVASCRIPT COM A LÓGICA DO JOGO DA MEMÓRIA, TELA ONDE HÁ AS CARTAS
 
-const grade = document.querySelector('.grid');
-const jogador = document.querySelector('.player');
 const tempo = document.querySelector('.timer');
 
-//lógica
+// Cartas disponibilizadas aleatoriamente e (gravadas no CSV? talvez)
 
 
 // FLIPPAR AS CARTAS
 var cards = document.querySelectorAll('.card');
 
-[...cards].forEach((card)=>{
+cards.forEach((card)=>{
   card.addEventListener( 'click', function() {
     card.classList.toggle('is-flipped');
   });
@@ -58,3 +56,5 @@ setInterval(temporizador, 900);
 
 // CLICK EM APENAS 2 CARTAS
 
+
+// Registrar a pontuação do jogador
