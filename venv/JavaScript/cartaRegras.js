@@ -20,7 +20,7 @@ export function combinacao() {
     const [carta1, carta2] = cartasViradas
     if (carta1.dataset.card === carta2.dataset.card) {
       carta1.removeEventListener('click', cartasViradas);
-      carta2.removeEventListener('click', cartasViradas);
+      carta.removeEventListener('click', cartasViradas);
   } else {
       //aguardar um tempo antes de esconder as cartas
       setTimeout(() => {
