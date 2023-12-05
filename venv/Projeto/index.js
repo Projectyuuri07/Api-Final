@@ -11,7 +11,10 @@ import { iniciarTemporizador } from '../JavaScript/tempo.js';
 
 iniciarTemporizador();
 
-import { flipCards } from '../JavaScript/virarCarta.js';
+import { flipCards } from '../JavaScript/cartaRegras.js';
 
 flipCards();
 
+import { combinacao } from '../JavaScript/cartaRegras.js';
+
+combinacao();
