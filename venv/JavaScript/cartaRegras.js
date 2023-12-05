@@ -7,7 +7,6 @@ export function flipCards() {
   cards.forEach((card)=>{
     card.addEventListener( 'click', function() {
       card.classList.toggle('is-flipped');
-        cartasViradas.push(card);
         if (flipCards.length === 2) {
     combinacao()};
     });
@@ -19,8 +18,8 @@ export function flipCards() {
 export function combinacao() {
     const [carta1, carta2] = cartasViradas
     if (carta1.dataset.card === carta2.dataset.card) {
-      carta1.removeEventListener('click', cartasViradas);
-      carta.removeEventListener('click', cartasViradas);
+      carta1.removeEventListener('click', flipCards);
+      carta2.removeEventListener('click', flipCards);
   } else {
       //aguardar um tempo antes de esconder as cartas
       setTimeout(() => {
