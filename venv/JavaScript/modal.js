@@ -1,7 +1,19 @@
-import Modal from 'react-boostrap/Modal'
+export function configurarModal() {
+    var modal = document.getElementById("myModal");
+    var btn = document.getElementById("myBtn");
+    var span = document.getElementsByClassName("close")[0];
 
-export function modalp() {
-    document.getElementById('NomeUsuario').style.display = 'block'
-    document.getElementById('.timer');
+    btn.onclick = function() {
+        modal.style.display = "flex";
+    }
+
+    span.onclick = function() {
+        modal.style.display = "none";
+    }
+
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
 }
-

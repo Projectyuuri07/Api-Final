@@ -15,6 +15,12 @@ import { flipCards } from '../JavaScript/cartaRegras.js';
 
 flipCards();
 
-import { combinacao } from '../JavaScript/cartaRegras.js';
+import { configurarModal } from '../JavaScript/modal.js';
 
-combinacao();
+configurarModal();
+
+import { carregarImagensDaApi } from '../JavaScript/gerar.js';
+
+carregarImagensDaApi
+
+

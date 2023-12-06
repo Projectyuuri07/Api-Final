@@ -1,35 +1,44 @@
-let cartasViradas = []
+let cartasViradas = [];
 
-//Flippar as cartas
+// Flippar as cartas
 export function flipCards() {
   var cards = document.querySelectorAll('.card');
 
-  cards.forEach((card)=>{
-    card.addEventListener( 'click', function() {
-      card.classList.toggle('is-flipped');
-        if (flipCards.length === 2) {
-    combinacao()};
+  cards.forEach((card) => {
+    card.addEventListener('click', function () {
+      // Verificar se já há 2 cartas viradas
+      if (cartasViradas.length < 2) {
+        card.classList.toggle('is-flipped');
+        cartasViradas.push(card);
+
+        // Verificar se duas cartas foram viradas
+        if (cartasViradas.length === 2) {
+          combinacao();
+        }
+      }
     });
   });
 }
 
-
-//travar o click pra apenas 2 cartas por vez
+// Função combinacao
 export function combinacao() {
-    const [carta1, carta2] = cartasViradas
-    if (carta1.dataset.card === carta2.dataset.card) {
-      carta1.removeEventListener('click', flipCards);
-      carta2.removeEventListener('click', flipCards);
+  const [carta1, carta2] = cartasViradas;
+
+  if (carta1.dataset.card === carta2.dataset.card) {
+    carta1.removeEventListener('click', flipCards);
+    carta2.removeEventListener('click', flipCards);
   } else {
-      //aguardar um tempo antes de esconder as cartas
-      setTimeout(() => {
-          carta1.classList.remove('is-flipped');
-          carta2.classList.remove('is-flipped');
-      }, 1000);
+    // Aguardar um tempo antes de esconder as cartas
+    setTimeout(() => {
+      carta1.classList.remove('is-flipped');
+      carta2.classList.remove('is-flipped');
+    }, 1000);
   }
-  //resetar lista de cartas viradas
-      cartasViradas = []
-  }
+
+  // Resetar lista de cartas viradas
+  cartasViradas = [];
+}
+
 
 
 //Realiza a combinação de cartas iguais

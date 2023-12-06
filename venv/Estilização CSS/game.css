@@ -73,71 +73,7 @@ img{
     gap: 20px;
 }
 
-/* Cartas do jogo */
 
-.main {
-  max-width: 800px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  grid-gap: 20px;
-}
-
-@media screen and (max-width: 600px) {
-  .main {
-    grid-template-columns: repeat(5, 1fr);
-  }
-}
-
-.scene {
-    display: inline-block;
-    perspective: 600px;
-  }
-  
-.card {
-    position: relative;
-    max-width: 120px;
-    cursor: pointer;
-    transform-style: preserve-3d;
-    transform-origin: center right;
-    transition: transform 0.5s;
-}
-
-/* .vai-tremer {
-    animation: tremer .2s;
-    animation-iteration-count: 4;
-}
-
-keyframe para ajustar até onde treme 
-@keyframes tremer {
-    0% {margin-left: 0;}
-    25% {margin-left: 7px;}
-    50% {margin-left: 0;}
-    75% {margin-left: -7px;}
-    100% {margin-left: 0;}
-}
-*/
-.card__face {
-    max-width: 120px;
-    font-weight: bold;
-    font-size: 40px;
-    backface-visibility: hidden;
-}
-
-.card__face--back {
-    background: slateblue;
-    transform: rotateY(180deg);
-}
-
-.tabela{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.verso {
-    width: 100%;
-}
 
 /* Footer */
 .rodape{
@@ -167,26 +103,71 @@ keyframe para ajustar até onde treme
     margin-left: 10px;
     
 }
-.modal{
-  color: blue;
-}
 
+/* Estilo básico para a modal */
 .modal {
-    visibility: hidden;
-    opacity: 0;
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
+    display: none;
+    z-index: 1;
+    margin: 20px;
+    width: 40%;
+    height: 100%;
+    overflow: auto;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgba(77, 77, 77, 0.7);
-    transition: all 0.4s;
-  }
-   
-  .modal:target {
-    visibility: visible;
-    opacity: 1;
-  }
+}
+
+.modal-content {
+    background-color: #fefefe;
+    padding: 20px;
+    border: 1px solid #888;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Cartas do jogo */
+
+.tabela {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 15px;
+  width: 100%;
+  max-width: 900px;
+  height: auto;
+  margin: 0 auto;
+  justify-content: center;
+}
+
+.scene {
+  display: inline-block;
+  perspective: 600px;
+}
+
+.card {
+  position: relative;
+  max-width: 120px;
+  cursor: pointer;
+  transform-style: preserve-3d;
+  transform-origin: center right;
+  transition: transform 0.5s;
+}
+
+.card__face {
+  max-width: 120px;
+  height: 170px;
+  font-weight: bold;
+  font-size: 40px;
+  backface-visibility: hidden;
+}
