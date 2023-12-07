@@ -6,7 +6,7 @@ correta de execução, evitando problemas de acesso a dados que ainda não foram
 
 export async function carregarImagensDaApi() {
   try {
-    const response = await fetch('http://192.168.0.13:5000/list');
+    const response = await fetch('http://192.168.0.105:5000/list');
     const cartasAPI = await response.json(); // Converte a resposta da requisição em formato JSON em objeto do JavaScript
 
     const cartasElements = document.querySelectorAll('.card__face.card__face--back');
