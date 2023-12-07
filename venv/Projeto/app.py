@@ -1,9 +1,11 @@
 from flask import Flask, jsonify, request
 from flask_cors import CORS
+import pandas as pd
 import random
+import csv
 
 matriz = {}
-cartas_viradas = set()
+cartas_acertas = set()
 
 ########### MATRIZ 4x3 ###########
 
@@ -20,6 +22,28 @@ matriz = {
 app = Flask(__name__)
 CORS(app)
 
+try:
+    open('Text.csv', 'x')
+    with open("Text.csv", "w") as arquivo:
+         arquivo.write("JOGADOR,TEMPO\n") 
+except:
+    pass
+
+@app.route("/ranking", methods=['GET'])
+def ranking():
+    with open("Text.csv", "r") as arquivo:
+        ranking = []
+        for linha in arquivo:
+            ranking.append(linha.split(','))
+    return jsonify(ranking)
+
+@app.route("/ranking", methods=['POST'])
+def add_ranking():
+    with open("Text.csv", "a") as arquivo:
+        arquivo.write(request.json['jogador'] + ',' + request.json['tempo'] + '\n')
+    return jsonify({'message': 'Ranking atualizado com sucesso'}), 200
+
+
 @app.route("/list", methods=['GET'])
 def listarCartas():
     posicoes = list(matriz.keys())
@@ -34,13 +58,14 @@ def adicionarJogador():
 
 
 
-@app.route("/delete/<int:index>", methods=['DELETE'])
-def deletarCartas(index):
-    if index in cartas_viradas:
-        cartas_viradas.remove(index)
-        return jsonify({"message": "Carta removida com sucesso!"})
+@app.route("/acertar/<int:carta_id>", methods=['DELETE'])
+def acertarCarta(carta_id):
+    posicao = next((pos for pos, id in matriz.items() if id == carta_id), None)
+    if posicao:
+        cartas_acertas.add(posicao)
+        return jsonify({'message': f'Carta {carta_id} acertada e excluída'}), 200
     else:
-        return jsonify({"message": "Carta não encontrada!"})
+        return jsonify({'error': f'Carta {carta_id} não encontrada'}), 404
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0", debug=True)

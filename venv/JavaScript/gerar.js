@@ -24,7 +24,7 @@ imgElements.forEach((item) => {
         if (card1.element.src === card2.element.src) {
           // Cartas iguais, aguarde um curto período e remova-as pela API
           setTimeout(async () => {
-            await removeCardsFromAPI(card1.id, card2.id);
+            await removeCardsFromAPI('http://192.168.0.105:5000/delete/card1.id/card2.id');
             flippedCards = []; // Limpe o array de cartas viradas
           }, 300);
         } else {
@@ -39,17 +39,3 @@ imgElements.forEach((item) => {
     }
   });
 });
-
-// Função para remover cartas pela API
-async function removeCardsFromAPI(cardId1, cardId2) {
-  try {
-    // Chame sua API para remover as cartas com os IDs fornecidos
-    await fetch(`http://192.168.0.105:5000/delete/${cardId1}`, { method: 'DELETE' });
-    await fetch(`http://192.168.0.105:5000/delete/${cardId2}`, { method: 'DELETE' });
-
-    // Chame a função para buscar e exibir as cartas atualizadas após algum tempo
-    setTimeout(fetchAndDisplayCards, 400);
-  } catch (error) {
-    console.error('Erro ao remover as cartas:', error);
-  }
-}

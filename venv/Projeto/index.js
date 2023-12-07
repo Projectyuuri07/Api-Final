@@ -19,3 +19,7 @@ import { carregarImagemDaApi } from '../JavaScript/cartaRegras.js';
 
 carregarImagemDaApi();
 
+import { pausarTemporizadorCartaCompletas } from '../JavaScript/tempo.js';
+
+pausarTemporizadorCartaCompletas();
+
