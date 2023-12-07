@@ -73,8 +73,6 @@ img {
     gap: 20px;
 }
 
-
-
 /* Footer */
 .rodape {
     width: 100%;
@@ -108,8 +106,8 @@ img {
 .modal {
     display: none;
     z-index: 1;
-    margin: 20px;
-    width: 40%;
+    margin-left: 300px;
+    width: 50%;
     height: 100%;
     overflow: auto;
     display: flex;
@@ -166,12 +164,15 @@ img {
 
 .card__face {
     max-width: 120px;
-    height: 150px;
+    height: 80px;
     font-weight: bold;
     font-size: 40px;
-    backface-visibility: hidden;
+    /* backface-visibility: hidden; */
 }
 
 .card__face--back img.oculta {
     display: none;
+    position: absolute;
+    top: 0
 }
+

@@ -6,40 +6,31 @@ correta de execução, evitando problemas de acesso a dados que ainda não foram
 
 export async function carregarImagensDaApi() {
   try {
-    const response = await fetch('http://192.168.0.105:5000/list');
-    const cartasAPI = await response.json(); // Converte a resposta da requisição em formato JSON em objeto do JavaScript
+      const response = await fetch('http://192.168.0.105:5000/list');
+      const cartasAPI = await response.json();
 
-    const cartasElements = document.querySelectorAll('.card__face.card__face--back');
+      const cartasElements = document.querySelectorAll('.card__face--back');
 
-    cartasElements.forEach((faceDeTras, index) => {
-      const imagem = document.createElement('img');
-      imagem.src = cartasAPI[index].imagem;
+      cartasElements.forEach((faceDeTras, index) => {
+          const imagem = document.createElement('img');
+          imagem.src = cartasAPI[index].imagem;
 
-      // Adiciona a imagem com uma classe para ocultá-la inicialmente
-      imagem.classList.add('oculta');
-      faceDeTras.appendChild(imagem);
+          faceDeTras.appendChild(imagem);
 
-      // Espera o evento de clique à carta para ser virada
-      faceDeTras.addEventListener('click', () => virarCarta(imagem, cartasElements));
-    });
+          faceDeTras.addEventListener('click', () => virarCarta(index, cartasElements));
+      });
   } catch (error) {
-    console.error('Erro ao carregar imagens da API:', error);
+      console.error('Erro ao carregar imagens da API:', error);
   }
 }
 
-// Função para virar a carta
-function virarCarta(imagem, todasCartas) {
-  // Adiciona a classe 'oculta' a todas as cartas
-  todasCartas.forEach((carta) => {
-    const cartaImagem = carta.querySelector('img');
-    if (cartaImagem !== imagem) {
-      cartaImagem.classList.add('oculta');
-    }
+function virarCarta(index, todasCartas) {
+  todasCartas.forEach((carta, i) => {
+      const cartaImagem = carta.querySelector('img');
+      if (i !== index) {
+          cartaImagem.classList.add('oculta');
+      }
   });
 
-  // Remove a classe 'oculta' apenas da imagem da carta clicada
-  imagem.classList.remove('oculta');
+  todasCartas[index].querySelector('img').classList.remove('oculta');
 }
-
-window.onload = carregarImagensDaApi();
-

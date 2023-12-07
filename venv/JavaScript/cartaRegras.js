@@ -2,7 +2,7 @@ let cartasViradas = [];
 
 // Flippar as cartas
 export function flipCards() {
-  var cards = document.querySelectorAll('.card');
+  var cards = document.querySelectorAll('.scene--card');
 
   cards.forEach((card) => {
     card.addEventListener('click', function () {
@@ -25,8 +25,10 @@ export function combinacao() {
   const [carta1, carta2] = cartasViradas;
 
   if (carta1.dataset.card === carta2.dataset.card) {
-    carta1.removeEventListener('click', flipCards);
-    carta2.removeEventListener('click', flipCards);
+    travarCarta(carta1)
+    travarCarta(carta2)
+    sumirCarta(carta1)
+    sumirCarta(carta2)
   } else {
     // Aguardar um tempo antes de esconder as cartas
     setTimeout(() => {
@@ -40,14 +42,26 @@ export function combinacao() {
 }
 
 
-
 //Realiza a combinação de cartas iguais
 export function travarCarta() {
-
 }
 
 //Faz as cartas já combinadas sumirem
-export function sumirCarta() {
-    
-}
+// export function sumirCarta(carta) {
+//   const index = parseInt(carta.dataset.cardIndex);
 
+  // Envia uma requisição DELETE para o servidor
+//   fetch(`/delete/${index}`, {
+//       method: 'DELETE',
+//   })
+//   .then(response => response.json())
+//   .then(data => {
+//       console.log(data.message);  // Exibe a mensagem do servidor no console
+//   })
+//   .catch(error => {
+//       console.error('Erro ao enviar requisição DELETE:', error);
+//   });
+
+//   // Remove a carta do DOM
+//   carta.remove();
+// }
