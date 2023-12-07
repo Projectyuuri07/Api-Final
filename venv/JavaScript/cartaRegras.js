@@ -1,45 +1,14 @@
-let cartasViradas = [];
+// Virar cartas
+const img = document.createElement('grid img');
+img.forEach((item) => {
+    item.addEventListener('click', () => {
+    item.setAttribute('src', 'http://192.168.0.105:5000');
+  })
+})
 
-// Flippar as cartas
-export function flipCards() {
-  var cards = document.querySelectorAll('.scene--card');
 
-  cards.forEach((card) => {
-    card.addEventListener('click', function () {
-      // Verificar se já há 2 cartas viradas
-      if (cartasViradas.length < 2) {
-        card.classList.toggle('is-flipped');
-        cartasViradas.push(card);
-        
-      // Verificar se duas cartas foram viradas
-      if (cartasViradas.length === 2) {
-        combinacao();
-        }
-      }
-    });
-  });
-}
 
-// Função combinacao
-export function combinacao() {
-  const [carta1, carta2] = cartasViradas;
 
-  if (carta1.dataset.card === carta2.dataset.card) {
-    travarCarta(carta1)
-    travarCarta(carta2)
-    sumirCarta(carta1)
-    sumirCarta(carta2)
-  } else {
-    // Aguardar um tempo antes de esconder as cartas
-    setTimeout(() => {
-      carta1.classList.remove('is-flipped');
-      carta2.classList.remove('is-flipped');
-    }, 1000);
-  }
-
-  // Resetar lista de cartas viradas
-  cartasViradas = [];
-}
 
 
 //Realiza a combinação de cartas iguais

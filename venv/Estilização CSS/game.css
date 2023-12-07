@@ -106,7 +106,7 @@ img {
 .modal {
     display: none;
     z-index: 1;
-    margin-left: 300px;
+    margin-left: 320px;
     width: 50%;
     height: 100%;
     overflow: auto;
@@ -135,8 +135,19 @@ img {
     cursor: pointer;
 }
 
-/* Cartas do jogo */
+.grid{
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 15px;
+    width: 100%;
+    max-width: 900px;
+    height: auto;
+    margin: 0 auto;
+    justify-content: center;
+}
 
+/* Cartas do jogo */
+/*
 .tabela {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
@@ -167,12 +178,14 @@ img {
     height: 80px;
     font-weight: bold;
     font-size: 40px;
-    /* backface-visibility: hidden; */
-}
+    /* backface-visibility: hidden; 
+    }
+    */
 
+/*
 .card__face--back img.oculta {
     display: none;
     position: absolute;
     top: 0
 }
-
+ */

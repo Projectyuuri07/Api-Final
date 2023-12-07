@@ -11,9 +11,9 @@ import { iniciarTemporizador } from '../JavaScript/tempo.js';
 
 iniciarTemporizador();
 
-import { flipCards } from '../JavaScript/cartaRegras.js';
+import { regraJogo } from '../JavaScript/cartaRegras.js';
 
-flipCards();
+regraJogo();
 
 import { configurarModal } from '../JavaScript/modal.js';
 

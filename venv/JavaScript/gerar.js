@@ -23,14 +23,3 @@ export async function carregarImagensDaApi() {
       console.error('Erro ao carregar imagens da API:', error);
   }
 }
-
-function virarCarta(index, todasCartas) {
-  todasCartas.forEach((carta, i) => {
-      const cartaImagem = carta.querySelector('img');
-      if (i !== index) {
-          cartaImagem.classList.add('oculta');
-      }
-  });
-
-  todasCartas[index].querySelector('img').classList.remove('oculta');
-}
