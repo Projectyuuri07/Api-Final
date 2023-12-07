@@ -20,7 +20,7 @@ export function voltarInicio() {
     document.addEventListener('DOMContentLoaded', function () {
         const voltarInicioButton = document.getElementById('voltarInicio');
 
-        voltarInicioButton.addEventListener('click', function (event) {
+        voltarInicioButton.addEventListener('click', function () {
             location.href = 'inicio.html';
         });
     });

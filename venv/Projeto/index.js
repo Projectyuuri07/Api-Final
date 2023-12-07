@@ -11,16 +11,11 @@ import { iniciarTemporizador } from '../JavaScript/tempo.js';
 
 iniciarTemporizador();
 
-import { regraJogo } from '../JavaScript/cartaRegras.js';
-
-regraJogo();
-
 import { configurarModal } from '../JavaScript/modal.js';
 
 configurarModal();
 
-import { carregarImagensDaApi } from '../JavaScript/gerar.js';
+import { carregarImagemDaApi } from '../JavaScript/cartaRegras.js';
 
-carregarImagensDaApi();
-
+carregarImagemDaApi();
 
