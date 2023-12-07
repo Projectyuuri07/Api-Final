@@ -26,14 +26,14 @@ imgElements.forEach((item) => {
           setTimeout(async () => {
             await removeCardsFromAPI(card1.id, card2.id);
             flippedCards = []; // Limpe o array de cartas viradas
-          }, 500);
+          }, 300);
         } else {
           // Cartas diferentes, aguarde um curto período e vire-as de volta para o verso
           setTimeout(() => {
             card1.element.classList.remove('flipped');
             card2.element.classList.remove('flipped');
             flippedCards = []; // Limpe o array de cartas viradas
-          }, 1000);
+          }, 600);
         }
       }
     }
@@ -48,7 +48,7 @@ async function removeCardsFromAPI(cardId1, cardId2) {
     await fetch(`http://192.168.0.105:5000/delete/${cardId2}`, { method: 'DELETE' });
 
     // Chame a função para buscar e exibir as cartas atualizadas após algum tempo
-    setTimeout(fetchAndDisplayCards, 500);
+    setTimeout(fetchAndDisplayCards, 400);
   } catch (error) {
     console.error('Erro ao remover as cartas:', error);
   }
