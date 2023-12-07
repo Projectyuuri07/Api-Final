@@ -15,11 +15,11 @@
     padding: 20px;
 }
 
-img{
-  max-width: 100%;
+img {
+    max-width: 100%;
 }
 
-#toggleMusicButton{
+#toggleMusicButton {
     display: flex;
     margin-bottom: 15px;
 }
@@ -29,13 +29,13 @@ img{
     color: #fff;
 }
 
-.btnStart{
+.btnStart {
     background-color: red;
     color: #fff;
     text-align: center;
 }
 
-.voltar{
+.voltar {
     background-color: rgb(11, 95, 151);
     color: #fff;
     width: 40px;
@@ -44,12 +44,12 @@ img{
     border-radius: 4px;
 }
 
-.botaovoltar{
+.botaovoltar {
     position: absolute;
     top: 10px;
 }
 
-.song{
+.song {
     position: absolute;
     right: 20px;
     top: 10px;
@@ -57,7 +57,7 @@ img{
 
 /* fundo do jogo */
 
-.fundo2{
+.fundo2 {
     background: url(../img/fundo.png);
     width: 100%;
     height: 100vh;
@@ -76,7 +76,7 @@ img{
 
 
 /* Footer */
-.rodape{
+.rodape {
     width: 100%;
     height: 71px;
     display: flex;
@@ -94,14 +94,14 @@ img{
     align-items: center;
     color: #ffffff;
     text-decoration: none;
-  }
-  
+}
+
 #icon {
     width: 30px;
     height: 30px;
     display: flex;
     margin-left: 10px;
-    
+
 }
 
 /* Estilo básico para a modal */
@@ -140,34 +140,38 @@ img{
 /* Cartas do jogo */
 
 .tabela {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: 15px;
-  width: 100%;
-  max-width: 900px;
-  height: auto;
-  margin: 0 auto;
-  justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 15px;
+    width: 100%;
+    max-width: 900px;
+    height: auto;
+    margin: 0 auto;
+    justify-content: center;
 }
 
 .scene {
-  display: inline-block;
-  perspective: 600px;
+    display: inline-block;
+    perspective: 600px;
 }
 
 .card {
-  position: relative;
-  max-width: 120px;
-  cursor: pointer;
-  transform-style: preserve-3d;
-  transform-origin: center right;
-  transition: transform 0.5s;
+    position: relative;
+    max-width: 120px;
+    cursor: pointer;
+    transform-style: preserve-3d;
+    transform-origin: center right;
+    transition: transform 0.5s;
 }
 
 .card__face {
-  max-width: 120px;
-  height: 170px;
-  font-weight: bold;
-  font-size: 40px;
-  backface-visibility: hidden;
+    max-width: 120px;
+    height: 150px;
+    font-weight: bold;
+    font-size: 40px;
+    backface-visibility: hidden;
+}
+
+.card__face--back img.oculta {
+    display: none;
 }

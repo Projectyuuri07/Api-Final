@@ -21,6 +21,6 @@ configurarModal();
 
 import { carregarImagensDaApi } from '../JavaScript/gerar.js';
 
-carregarImagensDaApi
+carregarImagensDaApi();
 
 

@@ -10,10 +10,10 @@ export function flipCards() {
       if (cartasViradas.length < 2) {
         card.classList.toggle('is-flipped');
         cartasViradas.push(card);
-
-        // Verificar se duas cartas foram viradas
-        if (cartasViradas.length === 2) {
-          combinacao();
+        
+      // Verificar se duas cartas foram viradas
+      if (cartasViradas.length === 2) {
+        combinacao();
         }
       }
     });
