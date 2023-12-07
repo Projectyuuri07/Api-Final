@@ -16,6 +16,7 @@ export function carregarImagemDaApi() {
 
             if (!carta.revelada && cartasViradas.length < 2) {
               card.setAttribute('src', carta.imagem);
+              card.classList.add('flipped');
               carta.revelada = true;
               cartasViradas.push(carta);
 
@@ -23,6 +24,7 @@ export function carregarImagemDaApi() {
                 setTimeout(() => {
                   if (cartasViradas[0].imagem !== cartasViradas[1].imagem) {
                     cartasViradas.forEach(c => {
+                      document.querySelector(`[data-id="${c.id}"]`).classList.remove('flipped');
                       document.querySelector(`[data-id="${c.id}"]`).setAttribute('src', '../img/verso.png');
                       c.revelada = false;
                     });
@@ -36,20 +38,5 @@ export function carregarImagemDaApi() {
         });
       })
       .catch(error => console.error('Erro ao carregar dados da API:', error));
-  });
-  // fetch('http://192.168.0.105:5000/cartas/1', {
-  //   method: 'DELETE'
-  // })
-  //   .then(response => {
-  //     if (!response.ok) {
-  //       throw new Error('Erro ao excluir carta');
-  //     }
-  //     return response.json();
-  //   })
-  //   .then(data => {
-  //     console.log(data);
-  //   })
-  //   .catch(error => {
-  //     console.error(error);
-  //   });
+  })
 }

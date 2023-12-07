@@ -25,7 +25,7 @@ CORS(app)
 try:
     open('Text.csv', 'x')
     with open("Text.csv", "w") as arquivo:
-         arquivo.write("JOGADOR,TEMPO\n") 
+        arquivo.write("JOGADOR,TEMPO\n") 
 except:
     pass
 
@@ -55,7 +55,6 @@ def listarCartas():
 @app.route("/add", methods=['POST'])
 def adicionarJogador():
     pass
-
 
 
 @app.route("/acertar/<int:carta_id>", methods=['DELETE'])
