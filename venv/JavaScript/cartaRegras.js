@@ -3,8 +3,9 @@ export function carregarImagemDaApi() {
     const cards = document.querySelectorAll('.card');
     let cartasAPI = [];
     let cartasViradas = [];
+    let cartasReveladas = 0;
 
-    fetch('http://192.168.3.199:5000/list')
+    fetch('http://192.168.15.129:5000/list')
       .then(response => response.json())
       .then(data => {
         cartasAPI = data;
@@ -24,27 +25,27 @@ export function carregarImagemDaApi() {
                 setTimeout(() => {
                   if (cartasViradas[0].imagem !== cartasViradas[1].imagem) {
                     cartasViradas.forEach(c => {
-                      document.querySelector(`[data-id="${c.id}"]`).classList.remove('flipped');
-                      document.querySelector(`[data-id="${c.id}"]`).setAttribute('src', '../img/verso.png');
+                      const cartaElement = document.querySelector(`[data-id="${c.id}"]`);
+                      cartaElement.classList.remove('flipped');
+                      // Define a imagem de volta para o verso
+                      cartaElement.setAttribute('src', '../img/verso.png');
                       c.revelada = false;
                     });
                   } else {
-                    fetch(`http://192.168.3.199:5000/acertar/${cartasViradas[0].id}/${cartasViradas[1].id}`, {
-                      method: 'DELETE',
-                    })
-                      .then(response => {
-                        console.log('Response status:', response.status);
-                        return response.json();
-                      })
-                      .then(data => {
-                        console.log('Server response:', data);
-                        if (data.message) {
-                          console.log(data.message);
-                        } else {
-                          console.error('Unexpected server response:', data);
-                        }
-                      })
-                      .catch(error => console.error('Error:', error));
+                    // Esconde as cartas acertadas após um tempo
+                    cartasViradas.forEach(c => {
+                      const cartaElement = document.querySelector(`[data-id="${c.id}"]`);
+                      cartaElement.classList.add('hidden');
+                    });
+
+                    // Incrementa o contador de cartas reveladas
+                    cartasReveladas += 2;
+
+                    // Verifica se todas as cartas foram reveladas
+                    if (cartasReveladas === 18) {
+                      // Exibe a mensagem de parabéns
+                      alert('Parabéns! Você encontrou todas as cartas!');
+                    }
                   }
 
                   cartasViradas = [];
