@@ -1,28 +1,75 @@
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Teko&display=swap');
-
-/* base */
-
-*{
+/* Reset CSS */
+* {
     margin: 0;
     padding: 0;
-    border: 0;
-    outline: 0;
-    box-sizing:border-box;
-    list-style: none;
-    text-decoration: none;
+    box-sizing: border-box;
 }
 
-body{
-    font-family: 'Luckiest Guy', cursive;
-    font-family: 'Playfair Display SC', serif;
+/* Container principal */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Altura mínima da tela visível */
 }
 
-/* botão */
 
-.btnStart {
+/* Navbar */
+.navbar {
+    background-color: #1c1c1c;
+}
+
+.navbar-brand img {
+    width: 40px;
+    height: 40px;
+}
+
+.titulo {
+    color: #fff;
+    font-size: 24px;
+}
+
+/* Fundo */
+.fundo {
+    background: url(../img/fundo2.jpg);
+    width: 100%;
+    min-height: 100vh; /* Alterado para min-height */
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Caixa */
+.caixa {
+    background-color: rgba(25, 25, 24, 0.7);
+    border-radius: 15px;
+    padding: 50px;
     text-align: center;
-    font-family: 'Teko', sans-serif;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.gif img {
+    max-width: 180px;
+    height: auto;
+    border-radius: 9px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Formulário */
+.input-nome {
+    margin-top: 20px;
+}
+
+input {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    font-size: 16px;
+    font-weight: bold;
 }
 
 .btnStart button {
@@ -30,101 +77,18 @@ body{
     padding: 15px 30px;
     background-color: #f50808;
     color: #fff;
-    border: 2px black outset;
     border-radius: 5px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: box-shadow 0.3s ease-in-out;
 }
 
 .btnStart button:hover {
-    background-color: #f50808;
+    background-color: #e30b0b; /* Cor mais escura ao passar o mouse */
     box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
 }
 
-#icon {
-    width: 50px;
-    height: 50px;
-    margin-right: 10px;
-}
-
-/* cabeçalho */
-
-.cabeçalho {
-    background-color: rgba(82, 43, 173, 0);
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.logo{
-    width: 40px;
-    height: 40px;
-}
-
-.titulo{
-    color: #fff;
-    font-size: 24px;
-}
-
-.btn{
-    margin-bottom: 10px;
-}
-
-/* container */
-
-.caixa{
-    display: flex;
-    flex-direction: column;
-    padding: 50px;
-}
-
-.gif {
-    display: flex;
-    justify-content: center;
-}
-
-.gif img {
-    max-width: 180px;
-    height: auto;
-    border-radius: 9px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0);
-}
-
-.input-nome{
-    margin-bottom: 10px;
-    padding: 15px;
-    border-radius: 4px;
-    color: #ffff;
-    background-color: rgba(25, 25, 24, 0.7)
-}
-
-input{
-    width: 100%;
-    padding: 10px;
-    border-radius: 4px;
-    background-color: rgb(255, 255, 255, 0.7);
-    font-size: 16px;
-    font-weight: bold;
-}
-
-.fundo{
-    background: url(../img/fundo2.jpg);
-    width: 100%;
-    height: 100vh;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    background-color: rgba(0, 0, 0, 0.3);
-    background-blend-mode: color;
-    display: flex;
-    justify-content: center;
-    background-attachment: fixed;
-}
-
-/* footer */
-
-.rodape{
+/* Footer */
+.rodape {
     width: 100%;
     height: 71px;
     display: flex;
@@ -142,11 +106,10 @@ input{
     align-items: center;
     color: #ffffff;
     text-decoration: none;
-  }
-  
+}
+
 #icon {
     width: 30px;
     height: 30px;
-    display: flex;
     margin-left: 10px;
 }

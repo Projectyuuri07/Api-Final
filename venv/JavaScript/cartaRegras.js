@@ -4,7 +4,7 @@ export function carregarImagemDaApi() {
     let cartasAPI = [];
     let cartasViradas = [];
 
-    fetch('http://192.168.0.105:5000/list')
+    fetch('http://192.168.3.199:5000/list')
       .then(response => response.json())
       .then(data => {
         cartasAPI = data;
