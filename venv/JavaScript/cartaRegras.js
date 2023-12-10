@@ -28,6 +28,23 @@ export function carregarImagemDaApi() {
                       document.querySelector(`[data-id="${c.id}"]`).setAttribute('src', '../img/verso.png');
                       c.revelada = false;
                     });
+                  } else {
+                    fetch(`http://192.168.3.199:5000/acertar/${cartasViradas[0].id}`, {
+                      method: 'DELETE',
+                    })
+                      .then(response => {
+                        console.log('Response status:', response.status);
+                        return response.json();
+                      })
+                      .then(data => {
+                        console.log('Server response:', data);
+                        if (data.message) {
+                          console.log(data.message);
+                        } else {
+                          console.error('Unexpected server response:', data);
+                        }
+                      })
+                      .catch(error => console.error('Error:', error));
                   }
 
                   cartasViradas = [];
@@ -38,5 +55,5 @@ export function carregarImagemDaApi() {
         });
       })
       .catch(error => console.error('Erro ao carregar dados da API:', error));
-  })
+  });
 }
