@@ -57,23 +57,22 @@ def adicionarJogador():
     pass
 
 
-@app.route("/acertar/<int:carta_id>", methods=['DELETE'])
-def acertarCarta(carta_id):
-    print(f"Received DELETE request for card ID: {carta_id}")
+@app.route("/acertar/<int:carta1_id>/<int:carta2_id>", methods=['DELETE'])
+def acertarCarta(carta1_id, carta2_id):
+    print(f"Received DELETE request for card ID: {carta1_id} e {carta2_id}")
 
-    posicao = next((pos for pos, id in matriz.items() if id == carta_id), None)
-    if posicao:
-        cartas_acertas.add(posicao)
+    if carta1_id and carta2_id in matriz.items():
+        cartas_acertas.add(carta1_id, carta2_id)
         
         if len(cartas_acertas) == 2:
-            for pos in cartas_acertas:
-                del matriz[pos]
+            for carta in cartas_acertas:
+                del matriz[carta]
             
             cartas_acertas.clear()
         
-        return jsonify({'message': f'Carta {carta_id} acertada e excluída'}), 200
+        return jsonify({'message': f'Carta {carta1_id} e {carta2_id} acertadas e excluídas'}), 200
     else:
-        return jsonify({'error': f'Carta {carta_id} não encontrada'}), 404
+        return jsonify({'error': f'Carta {carta1_id} e {carta2_id} não encontradas'}), 404
 
 
 

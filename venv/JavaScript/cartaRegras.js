@@ -29,7 +29,7 @@ export function carregarImagemDaApi() {
                       c.revelada = false;
                     });
                   } else {
-                    fetch(`http://192.168.3.199:5000/acertar/${cartasViradas[0].id}`, {
+                    fetch(`http://192.168.3.199:5000/acertar/${cartasViradas[0].id}/${cartasViradas[1].id}`, {
                       method: 'DELETE',
                     })
                       .then(response => {
