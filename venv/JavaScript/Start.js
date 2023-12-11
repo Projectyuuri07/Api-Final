@@ -10,7 +10,6 @@ export function iniciarJogo() {
                 event.preventDefault();
             } else {
                 location.href = 'game.html';
-                temporizador();
             }
         });
     });

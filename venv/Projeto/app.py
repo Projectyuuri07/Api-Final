@@ -3,7 +3,7 @@ from flask_cors import CORS
 import random
 
 app = Flask(__name__)
-CORS(app, methods=["GET", "POST", "DELETE"])
+CORS(app)
 
 matriz = {
     (0, 0): '../img/androide17.jpg', (0, 1): '../img/androide17.jpg', (0, 2): '../img/berrus.png', (0, 3): '../img/berrus.png',

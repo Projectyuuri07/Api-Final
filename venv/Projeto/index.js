@@ -7,15 +7,10 @@ import { iniciarJogo, voltarInicio } from '../JavaScript/Start.js';
 iniciarJogo();
 voltarInicio();
 
-import { iniciarTemporizador } from '../JavaScript/tempo.js';
-
-iniciarTemporizador();
-
 import { configurarModal } from '../JavaScript/modal.js';
 
 configurarModal();
 
-import { carregarImagemDaApi } from '../JavaScript/cartaRegras.js';
+import { jogoIniciado } from '../JavaScript/cartaRegras.js';
 
-carregarImagemDaApi();
-
+jogoIniciado();

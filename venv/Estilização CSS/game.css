@@ -103,10 +103,9 @@
 /* Modal */
 
 .modal {
-    display: none;
     z-index: 1;
-    margin-left: 500px;
-    width: 40%;
+    margin-left: 480px;
+    width: 50%;
     height: 100%;
     overflow: auto;
     display: flex;

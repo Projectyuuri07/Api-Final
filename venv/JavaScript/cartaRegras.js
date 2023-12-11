@@ -1,14 +1,47 @@
-export function carregarImagemDaApi() {
+export function jogoIniciado() {
   document.addEventListener('DOMContentLoaded', function () {
+    const tempo = document.querySelector('.timer');
+
+    // Músicas
+    const musicaBatalha = document.getElementById('backgroundMusic');
+    const musicaVitoria = new Audio('../musicas/musicafinal.mp3');
+
+    let temporizadorInterval;
+
+    function iniciarTemporizador() {
+      if (tempo) {
+        let segundos = 0;
+
+        temporizadorInterval = setInterval(() => {
+          // Calcula os minutos e segundos
+          let contagemMinutos = Math.floor((segundos % 3600) / 60);
+          let contagemSegundos = segundos % 60;
+
+          // Adiciona um zero à esquerda se for necessário
+          contagemMinutos = contagemMinutos < 10 ? '0' + contagemMinutos : contagemMinutos;
+          contagemSegundos = contagemSegundos < 10 ? '0' + contagemSegundos : contagemSegundos;
+
+          // Atualiza o conteúdo do elemento de temporizador
+          tempo.textContent = `${contagemMinutos}:${contagemSegundos}`;
+
+          // Incrementa o contador de segundos
+          segundos++;
+        }, 1000);
+      } else {
+        console.error('Elemento com a classe "timer" não encontrado no DOM.');
+      }
+    }
+
     const cards = document.querySelectorAll('.card');
     let cartasAPI = [];
     let cartasViradas = [];
     let cartasReveladas = 0;
 
-    fetch('http://192.168.15.129:5000/list')
+    fetch('http://192.168.0.19:5000/list')
       .then(response => response.json())
       .then(data => {
         cartasAPI = data;
+        iniciarTemporizador(); // Inicia o temporizador quando as imagens são carregadas
 
         cards.forEach(card => {
           card.addEventListener('click', function () {
@@ -27,24 +60,27 @@ export function carregarImagemDaApi() {
                     cartasViradas.forEach(c => {
                       const cartaElement = document.querySelector(`[data-id="${c.id}"]`);
                       cartaElement.classList.remove('flipped');
-                      // Define a imagem de volta para o verso
                       cartaElement.setAttribute('src', '../img/verso.png');
                       c.revelada = false;
                     });
                   } else {
-                    // Esconde as cartas acertadas após um tempo
                     cartasViradas.forEach(c => {
                       const cartaElement = document.querySelector(`[data-id="${c.id}"]`);
                       cartaElement.classList.add('hidden');
                     });
 
-                    // Incrementa o contador de cartas reveladas
                     cartasReveladas += 2;
 
-                    // Verifica se todas as cartas foram reveladas
                     if (cartasReveladas === 18) {
-                      // Exibe a mensagem de parabéns
-                      alert('Parabéns! Você encontrou todas as cartas!');
+                      alert("Parabéns! Você descobriu todas as cartas!");
+                      // Pausa o temporizador quando o jogador ganha
+                      clearInterval(temporizadorInterval);
+
+                      musicaBatalha.pause();
+                      musicaVitoria.play();
+
+                      const modal = document.getElementById('myModal');
+                      modal.style.display = 'flex';
                     }
                   }
 
