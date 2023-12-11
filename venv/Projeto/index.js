@@ -7,9 +7,12 @@ import { iniciarJogo, voltarInicio } from '../JavaScript/Start.js';
 iniciarJogo();
 voltarInicio();
 
-import { configurarModal } from '../JavaScript/modal.js';
+import { configurarModal, jogarNovamente, sairJogo } from '../JavaScript/modal.js';
 
 configurarModal();
+jogarNovamente();
+sairJogo();
+
 
 import { jogoIniciado, registrarJogador } from '../JavaScript/cartaRegras.js';
 
