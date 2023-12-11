@@ -11,6 +11,7 @@ import { configurarModal } from '../JavaScript/modal.js';
 
 configurarModal();
 
-import { jogoIniciado } from '../JavaScript/cartaRegras.js';
+import { jogoIniciado, registrarJogador } from '../JavaScript/cartaRegras.js';
 
 jogoIniciado();
+registrarJogador();

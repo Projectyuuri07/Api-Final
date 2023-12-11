@@ -1,6 +1,7 @@
 from flask import Flask, jsonify, request
 from flask_cors import CORS
 import random
+import pandas as pd
 
 app = Flask(__name__)
 CORS(app)
@@ -13,19 +14,26 @@ matriz = {
     (4,0): '../img/cell.jpg', (4,1): '../img/cell.jpg'
 }
 
-@app.route("/ranking", methods=['GET'])
-def ranking():
-    with open("Text.csv", "r") as arquivo:
-        ranking = []
-        for linha in arquivo:
-            ranking.append(linha.split(','))
-    return jsonify(ranking)
+try:
+    open('Text.csv', 'x')
+    with open("Text.csv", "w") as arquivo:
+        arquivo.write("JOGADOR, TEMPO\n") 
+except:
+    pass
 
-@app.route("/ranking", methods=['POST'])
-def add_ranking():
-    with open("Text.csv", "a") as arquivo:
-        arquivo.write(request.json['jogador'] + ',' + request.json['tempo'] + '\n')
-    return jsonify({'message': 'Ranking atualizado com sucesso'}), 200
+# @app.route("/ranking", methods=['GET'])
+# def ranking():
+#     with open("Text.csv", "r") as arquivo:
+#         ranking = []
+#         for linha in arquivo:
+#             ranking.append(linha.split(','))
+#     return jsonify(ranking)
+
+# @app.route("/ranking", methods=['POST'])
+# def add_ranking():
+#     with open("Text.csv", "a") as arquivo:
+#         arquivo.write(request.json['jogador'] + ',' + request.json['tempo'] + '\n')
+#     return jsonify({'message': 'Ranking atualizado com sucesso'}), 200
 
 @app.route("/list", methods=['GET'])
 def listarCartas():
@@ -37,7 +45,17 @@ def listarCartas():
 
 @app.route("/add", methods=['POST'])
 def adicionarJogador():
-    pass
+    item = request.json
+    jogadores = pd.read_csv('Text.csv')
+    jogadores = jogadores.to_dict('records')
+
+    with open("Text.csv", "a") as arquivo:
+        arquivo.write(f"{item['Jogador']}, {item['Tempo']}\n")
+
+    jogadores = pd.read_csv('Text.csv')
+    jogadores = jogadores.to_dict('records')
+
+    return jsonify(jogadores)
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0", debug=True)
