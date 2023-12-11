@@ -182,3 +182,8 @@
     opacity: 0;
     transition: visibility 0s 1s, opacity 1s linear;
 }  
+
+.btnmodal{
+    display: flex;
+    margin: 5px;
+}
