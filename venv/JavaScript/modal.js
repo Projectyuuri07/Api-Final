@@ -17,3 +17,20 @@ export function configurarModal() {
         }
     }
 }
+
+
+export function jogarNovamente() {
+    const jogarNovamenteButton = document.getElementById('jogarNovamente');
+
+    jogarNovamenteButton.addEventListener('click', function () {
+        location.href = 'game.html';
+    });
+}
+
+export function sairJogo() {
+    const sairJogoButton = document.getElementById('sairJogo');
+
+    sairJogoButton.addEventListener('click', function () {
+        location.href = 'inicio.html';
+    });
+}
