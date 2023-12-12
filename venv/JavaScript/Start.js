@@ -9,11 +9,14 @@ export function iniciarJogo() {
                 alert('Por favor, insira seu nome antes de iniciar o jogo.');
                 event.preventDefault();
             } else {
+                // Armazena o nome do usuário no localStorage
+                localStorage.setItem('nomeUsuario', nomeInput.value);
                 location.href = 'game.html';
             }
         });
     });
 }
+
 
 export function voltarInicio() {
     document.addEventListener('DOMContentLoaded', function () {
