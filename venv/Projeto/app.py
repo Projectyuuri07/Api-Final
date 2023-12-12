@@ -21,20 +21,6 @@ try:
 except:
     pass
 
-# @app.route("/ranking", methods=['GET'])
-# def ranking():
-#     with open("Text.csv", "r") as arquivo:
-#         ranking = []
-#         for linha in arquivo:
-#             ranking.append(linha.split(','))
-#     return jsonify(ranking)
-
-# @app.route("/ranking", methods=['POST'])
-# def add_ranking():
-#     with open("Text.csv", "a") as arquivo:
-#         arquivo.write(request.json['jogador'] + ',' + request.json['tempo'] + '\n')
-#     return jsonify({'message': 'Ranking atualizado com sucesso'}), 200
-
 @app.route("/list", methods=['GET'])
 def listarCartas():
     posicoes = list(matriz.keys())

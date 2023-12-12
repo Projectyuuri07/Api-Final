@@ -31,7 +31,7 @@ export function jogoIniciado() {
         let cartasViradas = [];
         let cartasReveladas = 0;
 
-        fetch('http://192.168.0.19:5000/list')
+        fetch('http://192.168.0.105:5000/list')
             .then(response => response.json())
             .then(data => {
                 cartasAPI = data;
@@ -110,7 +110,7 @@ export function registrarJogador(nomeUsuario, recordeTempo) {
     }
 
     function SalvarCSV(novoJogador) {
-        axios.post('http://192.168.0.19:5000/add', novoJogador)
+        axios.post('http://192.168.0.105:5000/add', novoJogador)
             .then(response => {
                 console.log(response.data);
                 
