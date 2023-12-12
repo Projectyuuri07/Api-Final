@@ -101,7 +101,7 @@ export function registrarJogador(nomeUsuario, recordeTempo) {
             Tempo: recordeTempo
         };
 
-        // Salve o tempo convertido para segundos
+        // Salvar o tempo convertido para segundos
         novoJogador.Tempo = parseInt(recordeTempo.split(":")[0]) * 60 + parseInt(recordeTempo.split(":")[1]);
 
         SalvarCSV(novoJogador);
@@ -113,10 +113,29 @@ export function registrarJogador(nomeUsuario, recordeTempo) {
         axios.post('http://192.168.0.105:5000/add', novoJogador)
             .then(response => {
                 console.log(response.data);
-                
             })
             .catch(error => {
                 console.error('Erro na requisição POST', error);
             });
     }
+}
+
+const tabela = document.querySelector('.tabela-js')
+
+/* REQUISIÇÃO GET */
+axios.get('http://192.168.0.105:5000/ranking').then((response) => {
+    getData(response.data)
+}).catch((error) => {
+    console.log('Erro na requisição GET', error)
+});
+
+function getData(data){
+    data.map((item) => {
+        tabela.innerHTML += `
+            <tr>
+                <th scope="row" class="text-center align-middle">${item.JOGADOR}</th>
+                <td class="text-center align-middle">${item.TEMPO}</td>
+            </tr>
+        `
+    })
 }

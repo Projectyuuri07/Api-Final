@@ -43,5 +43,11 @@ def adicionarJogador():
 
     return jsonify(jogadores)
 
+@app.route("/ranking", methods=['GET'])
+def listarRanking():    
+    jogadores = pd.read_csv('Text.csv')
+    jogadores = jogadores.to_dict('records')    
+    return jsonify(jogadores)
+
 if __name__ == '__main__':
     app.run(host="0.0.0.0", debug=True)
