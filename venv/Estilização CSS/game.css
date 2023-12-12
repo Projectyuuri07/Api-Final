@@ -104,13 +104,17 @@
 
 .modal {
     z-index: 1;
-    margin-left: 370px;
     width: 60%;
     height: 100%;
     overflow: auto;
     display: flex;
     align-items: center;
-    justify-content: center;
+    position: fixed; /* Use position: fixed para manter a modal fixa na tela */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto; /* Define margens automáticas para centralizar */
 }
 
 .modal-content {
@@ -136,11 +140,8 @@
 
 .separar{
     display: flex;
-    justify-content: space-evenly;
-}
-
-.tabela-js {
-    align-items: self-start;
+    justify-content: space-around;
+    padding-left: 95px;
 }
 
 /* Footer */
@@ -193,7 +194,6 @@
 
 .scoretitle{
     display: flex;
-    margin-left: 30px;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
 }

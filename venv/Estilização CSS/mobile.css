@@ -7,6 +7,33 @@
     .rodape {
         font-size: 12px;
     }
+
+    .modal {
+        margin: 0; 
+        width: 100%;
+        overflow: auto; 
+    }
+
+    .modal-content {
+        padding: 15px; 
+    }
+
+    .scoretitle {
+        margin-left: 5px;
+    }
+
+    /* Fontes Responsivas */
+    .modal-title {
+        font-size: 18px; 
+    }
+
+    .btnmodal {
+        font-size: 14px; 
+    }
+    .modal-body {
+        max-height: 70vh;
+        overflow-y: auto; 
+}
 }
 
 @media screen and (max-width: 450px) {
@@ -21,9 +48,5 @@
 @media screen and (max-width: 200px) {
     .navbar .titulo {
         font-size: 15px;
-    }
-    
-    .rodape {
-        font-size: 8px;
     }
 }

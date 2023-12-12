@@ -72,13 +72,13 @@ export function jogoIniciado() {
 
                                             musicaBatalha.pause();
                                             musicaVitoria.play();
-                                            
+
                                             registrarJogador(nomeUsuario, recordeTempo);
-                                            
+
                                             const modal = document.getElementById('myModal');
                                             modal.style.display = 'flex';
 
-                                            
+
                                         }
                                     }
 
@@ -101,7 +101,7 @@ export function registrarJogador(nomeUsuario, recordeTempo) {
             Tempo: recordeTempo
         };
 
-        // Salvar o tempo convertido para segundos
+        // Salve o tempo convertido para segundos
         novoJogador.Tempo = parseInt(recordeTempo.split(":")[0]) * 60 + parseInt(recordeTempo.split(":")[1]);
 
         SalvarCSV(novoJogador);
@@ -113,6 +113,7 @@ export function registrarJogador(nomeUsuario, recordeTempo) {
         axios.post('http://192.168.0.105:5000/add', novoJogador)
             .then(response => {
                 console.log(response.data);
+
             })
             .catch(error => {
                 console.error('Erro na requisição POST', error);
@@ -138,4 +139,5 @@ function getData(data){
             </tr>
         `
     })
+
 }

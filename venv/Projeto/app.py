@@ -35,6 +35,9 @@ def adicionarJogador():
     jogadores = pd.read_csv('Text.csv')
     jogadores = jogadores.to_dict('records')
 
+    jogadores['Tempo'] = str(jogadores['Tempo'])
+    print(jogadores['Tempo'].type())
+
     with open("Text.csv", "a") as arquivo:
         arquivo.write(f"{item['Jogador']}, {item['Tempo']}\n")
 
@@ -44,8 +47,9 @@ def adicionarJogador():
     return jsonify(jogadores)
 
 @app.route("/ranking", methods=['GET'])
-def listarRanking():    
+def listarRanking():
     jogadores = pd.read_csv('Text.csv')
+
     jogadores = jogadores.to_dict('records')    
     return jsonify(jogadores)
 
