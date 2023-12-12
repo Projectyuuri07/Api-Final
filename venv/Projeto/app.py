@@ -17,7 +17,7 @@ matriz = {
 try:
     open('Text.csv', 'x')
     with open("Text.csv", "w") as arquivo:
-        arquivo.write("JOGADOR, TEMPO\n") 
+        arquivo.write("JOGADOR,TEMPO\n") 
 except:
     pass
 
@@ -34,9 +34,6 @@ def adicionarJogador():
     item = request.json
     jogadores = pd.read_csv('Text.csv')
     jogadores = jogadores.to_dict('records')
-
-    jogadores['Tempo'] = str(jogadores['Tempo'])
-    print(jogadores['Tempo'].type())
 
     with open("Text.csv", "a") as arquivo:
         arquivo.write(f"{item['Jogador']}, {item['Tempo']}\n")

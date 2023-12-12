@@ -117,6 +117,11 @@
     margin: auto; /* Define margens automáticas para centralizar */
 }
 
+.conteudo {
+    display: flex;
+    justify-content: space-around;
+}
+
 .modal-content {
     background-color: #fefefe;
     padding: 20px;
@@ -141,7 +146,6 @@
 .separar{
     display: flex;
     justify-content: space-around;
-    padding-left: 95px;
 }
 
 /* Footer */
@@ -194,6 +198,10 @@
 
 .scoretitle{
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    justify-content: space-around;
+}
+
+.infoplayer{
+    display: flex;
+    justify-content: space-around;
 }

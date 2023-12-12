@@ -78,7 +78,6 @@ export function jogoIniciado() {
                                             const modal = document.getElementById('myModal');
                                             modal.style.display = 'flex';
 
-
                                         }
                                     }
 
@@ -94,11 +93,10 @@ export function jogoIniciado() {
 }
 
 export function registrarJogador(nomeUsuario, recordeTempo) {
-
     if (nomeUsuario) {
         const novoJogador = {
-            Jogador: nomeUsuario,
-            Tempo: recordeTempo
+            "Jogador": nomeUsuario,
+            "Tempo": recordeTempo
         };
 
         // Salve o tempo convertido para segundos
@@ -121,7 +119,7 @@ export function registrarJogador(nomeUsuario, recordeTempo) {
     }
 }
 
-const tabela = document.querySelector('.tabela-js')
+const tabela = document.querySelector('.table-content')
 
 /* REQUISIÇÃO GET */
 axios.get('http://192.168.0.105:5000/ranking').then((response) => {
@@ -133,9 +131,9 @@ axios.get('http://192.168.0.105:5000/ranking').then((response) => {
 function getData(data){
     data.map((item) => {
         tabela.innerHTML += `
-            <tr>
-                <th scope="row" class="text-center align-middle">${item.JOGADOR}</th>
-                <td class="text-center align-middle">${item.TEMPO}</td>
+            <tr class="conteudo">
+                <th class="text-center align-middle infoplayer">${item.JOGADOR}</th>
+                <td class="text-center align-middle infoplayer">${item.TEMPO}</td>
             </tr>
         `
     })
