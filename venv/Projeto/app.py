@@ -46,7 +46,8 @@ def adicionarJogador():
 @app.route("/ranking", methods=['GET'])
 def listarRanking():
     jogadores = pd.read_csv('Text.csv')
-
+    ## Listar do menor tempo até o maior
+    jogadores = jogadores.sort_values(by='TEMPO', ascending=True)
     jogadores = jogadores.to_dict('records')    
     return jsonify(jogadores)
 

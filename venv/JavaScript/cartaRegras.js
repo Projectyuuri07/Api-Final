@@ -128,14 +128,14 @@ axios.get('http://192.168.0.105:5000/ranking').then((response) => {
     console.log('Erro na requisição GET', error)
 });
 
-function getData(data){
+function getData(data) {
     data.map((item) => {
         tabela.innerHTML += `
-            <tr class="conteudo">
-                <th class="text-center align-middle infoplayer">${item.JOGADOR}</th>
-                <td class="text-center align-middle infoplayer">${item.TEMPO}</td>
+            <tr class="conteudo text-center">
+                <th class="align-middle">${item.JOGADOR}</th>
+                <td class="align-middle">${item.TEMPO}</td>
             </tr>
-        `
-    })
-
+        `;
+    });
 }
+
