@@ -1,7 +1,7 @@
 from flask import Flask, jsonify, request
 from flask_cors import CORS
-import random
 import pandas as pd
+import random
 
 app = Flask(__name__)
 CORS(app)
@@ -20,6 +20,7 @@ try:
         arquivo.write("JOGADOR,TEMPO\n") 
 except:
     pass
+
 
 @app.route("/list", methods=['GET'])
 def listarCartas():

@@ -31,65 +31,68 @@ export function jogoIniciado() {
         let cartasViradas = [];
         let cartasReveladas = 0;
 
-        fetch('http://192.168.0.105:5000/list')
-            .then(response => response.json())
+        axios.get('http://192.168.0.19:5000/list')
+            .then(response => response.data)
             .then(data => {
                 cartasAPI = data;
                 iniciarTemporizador();
-
-                cards.forEach(card => {
-                    card.addEventListener('click', function () {
-                        const cardId = card.getAttribute('data-id');
-                        const carta = cartasAPI.find(c => c.id == cardId);
-
-                        if (!carta.revelada && cartasViradas.length < 2) {
-                            card.setAttribute('src', carta.imagem);
-                            card.classList.add('flipped');
-                            carta.revelada = true;
-                            cartasViradas.push(carta);
-
-                            if (cartasViradas.length === 2) {
-                                setTimeout(() => {
-                                    if (cartasViradas[0].imagem !== cartasViradas[1].imagem) {
-                                        cartasViradas.forEach(c => {
-                                            const cartaElement = document.querySelector(`[data-id="${c.id}"]`);
-                                            cartaElement.classList.remove('flipped');
-                                            cartaElement.setAttribute('src', '../img/verso.png');
-                                            c.revelada = false;
-                                        });
-                                    } else {
-                                        cartasViradas.forEach(c => {
-                                            const cartaElement = document.querySelector(`[data-id="${c.id}"]`);
-                                            cartaElement.classList.add('hidden');
-                                        });
-
-                                        cartasReveladas += 2;
-
-                                        if (cartasReveladas === 18) {
-                                            alert("Parabéns! Você descobriu todas as cartas!");
-                                            clearInterval(temporizadorInterval);
-                                            recordeTempo = tempo.textContent;
-
-                                            musicaBatalha.pause();
-                                            musicaVitoria.play();
-
-                                            registrarJogador(nomeUsuario, recordeTempo);
-
-                                            const modal = document.getElementById('myModal');
-                                            modal.style.display = 'flex';
-
-                                        }
-                                    }
-
-                                    cartasViradas = [];
-                                }, 1000);
-                            }
-                        }
-                    });
-                });
             })
-            .catch(error => console.error('Erro ao carregar dados da API:', error));
-    });
+            .catch(error => {
+                console.error('Erro na requisição:', error);
+            });
+
+        cards.forEach(card => {
+            card.addEventListener('click', function () {
+                const cardId = card.getAttribute('data-id');
+                const carta = cartasAPI.find(c => c.id == cardId);
+
+                if (!carta.revelada && cartasViradas.length < 2) {
+                    card.setAttribute('src', carta.imagem);
+                    card.classList.add('flipped');
+                    carta.revelada = true;
+                    cartasViradas.push(carta);
+
+                    if (cartasViradas.length === 2) {
+                        setTimeout(() => {
+                            if (cartasViradas[0].imagem !== cartasViradas[1].imagem) {
+                                cartasViradas.forEach(c => {
+                                    const cartaElement = document.querySelector(`[data-id="${c.id}"]`);
+                                    cartaElement.classList.remove('flipped');
+                                    cartaElement.setAttribute('src', '../img/verso.png');
+                                    c.revelada = false;
+                                });
+                            } else {
+                                cartasViradas.forEach(c => {
+                                    const cartaElement = document.querySelector(`[data-id="${c.id}"]`);
+                                    cartaElement.classList.add('hidden');
+                                });
+
+                                cartasReveladas += 2;
+
+                                if (cartasReveladas === 18) {
+                                    alert("Parabéns! Você descobriu todas as cartas!");
+                                    clearInterval(temporizadorInterval);
+                                    recordeTempo = tempo.textContent;
+
+                                    musicaBatalha.pause();
+                                    musicaVitoria.play();
+
+                                    registrarJogador(nomeUsuario, recordeTempo);
+
+                                    const modal = document.getElementById('myModal');
+                                    modal.style.display = 'flex';
+
+                                }
+                            }
+
+                            cartasViradas = [];
+                        }, 1000);
+                    }
+                }
+            });
+        });
+    })
+        .catch(error => console.error('Erro ao carregar dados da API:', error));
 }
 
 export function registrarJogador(nomeUsuario, recordeTempo) {
@@ -108,7 +111,7 @@ export function registrarJogador(nomeUsuario, recordeTempo) {
     }
 
     function SalvarCSV(novoJogador) {
-        axios.post('http://192.168.0.105:5000/add', novoJogador)
+        axios.post('http://192.168.0.19:5000/add', novoJogador)
             .then(response => {
                 console.log(response.data);
 
@@ -122,7 +125,7 @@ export function registrarJogador(nomeUsuario, recordeTempo) {
 const tabela = document.querySelector('.table-content')
 
 /* REQUISIÇÃO GET */
-axios.get('http://192.168.0.105:5000/ranking').then((response) => {
+axios.get('http://192.168.0.19:5000/ranking').then((response) => {
     getData(response.data)
 }).catch((error) => {
     console.log('Erro na requisição GET', error)
